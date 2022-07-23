@@ -1,4 +1,4 @@
-import {offerType, reviewType} from '../types/types';
+import {cityType, offerType, reviewType} from '../types/types';
 
 export function generateId():string {
   return `id${Math.random().toString(16).slice(2)}`;
@@ -42,6 +42,15 @@ export const reviews:reviewType[] = [
   },
 ];
 
+export const cities:cityType[] = [
+  {cityName: 'Paris', cityId: 0},
+  {cityName: 'Cologne', cityId: 1},
+  {cityName: 'Brussels', cityId: 2},
+  {cityName: 'Amsterdam', cityId: 3},
+  {cityName: 'Hamburg', cityId: 4},
+  {cityName: 'Dusseldord', cityId: 5},
+];
+
 export const offers: offerType[] = [
   {
     id: generateId(),
@@ -51,7 +60,7 @@ export const offers: offerType[] = [
     type: 'apartment',
     isPremium: true,
     stars: 3,
-    city: 'Amsterdam',
+    city: cities[1],
     bedrooms: 2,
     guestsMax: 7,
     price: 4534,
@@ -72,7 +81,7 @@ export const offers: offerType[] = [
     type: 'flat',
     isPremium: false,
     stars: 5,
-    city: 'Cologne',
+    city: cities[1],
     bedrooms: 1,
     guestsMax: 4,
     price: 3576,
@@ -93,7 +102,7 @@ export const offers: offerType[] = [
     type: 'villa',
     isPremium: true,
     stars: 4,
-    city: 'Cologne',
+    city: cities[2],
     bedrooms: 5,
     guestsMax: 14,
     price: 15757,
@@ -114,7 +123,7 @@ export const offers: offerType[] = [
     type: 'atelier',
     isPremium: false,
     stars: 5,
-    city: 'Paris',
+    city: cities[3],
     bedrooms: 1,
     guestsMax: 2,
     price: 3435,
