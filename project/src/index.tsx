@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import App from './components/app/app';
-import {offers} from './mocks/mock-data';
+import {offers, POINTS, mainCity} from './mocks/mock-data';
 
 const Setting = {
   RENTAL_OFFERS: 5,
@@ -16,6 +16,8 @@ root.render(
     <App
       rentalOffers = {Setting.RENTAL_OFFERS}
       offers = {offers}
+      points = {POINTS}
+      city={mainCity}
     />
   </React.StrictMode>,
 );

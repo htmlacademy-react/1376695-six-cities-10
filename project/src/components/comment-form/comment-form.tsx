@@ -1,11 +1,14 @@
-import {useState} from 'react';
+import {ChangeEvent} from 'react';
+import { useState } from 'react';
 
 function CommentForm():JSX.Element {
   const [formData, setFormData] = useState({
     review: '',
   });
 
-  const formChangeHandle = (evt: any) => {
+  const formChangeHandle = (evt: ChangeEvent<HTMLTextAreaElement>) => {
+    // eslint-disable-next-line no-console
+    console.log(evt.target);
     const {name, value} = evt.target;
     setFormData({...formData, [name]: value});
   };

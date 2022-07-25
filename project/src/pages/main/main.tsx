@@ -1,12 +1,15 @@
 import OffersList from '../../components/offers-list/offers-list';
-import {offerType} from '../../types/types';
+import {City, offerType, Points} from '../../types/types';
+import Map from '../../components/map/map';
 
 type MainProps = {
   rentalOffers: number;
   offers: offerType[];
+  points: Points;
+  city: City;
 }
 
-function Main({rentalOffers, offers}: MainProps): JSX.Element {
+function Main({rentalOffers, offers, points, city}: MainProps): JSX.Element {
   return (
     <>
       <div style={{ display: 'none' }}>
@@ -115,7 +118,7 @@ function Main({rentalOffers, offers}: MainProps): JSX.Element {
               />
 
               <div className='cities__right-section'>
-                <section className='cities__map map' />
+                <Map city={city} points={points}/>
               </div>
             </div>
           </div>

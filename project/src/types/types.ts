@@ -12,7 +12,7 @@ export type offerType = {
   type: string,
   isPremium: boolean,
   stars: number,
-  city: string,
+  city: cityType,
   bedrooms: number,
   guestsMax: number,
   price: number,
@@ -29,3 +29,23 @@ export type reviewType = {
   date: string,
   reviewText: string,
 }
+
+export type cityType = {
+  cityName: string,
+  cityId: number,
+}
+
+export type City = {
+  title: string;
+  lat: number;
+  lng: number;
+  zoom: number;
+};
+
+export type Point = {
+  title: string;
+  lat: number;
+  lng: number;
+};
+
+export type Points = Point[];

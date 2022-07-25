@@ -1,4 +1,4 @@
-import {offerType, reviewType} from '../types/types';
+import {cityType, offerType, reviewType, Points, City} from '../types/types';
 
 export function generateId():string {
   return `id${Math.random().toString(16).slice(2)}`;
@@ -42,6 +42,15 @@ export const reviews:reviewType[] = [
   },
 ];
 
+export const cities:cityType[] = [
+  {cityName: 'Paris', cityId: 0},
+  {cityName: 'Cologne', cityId: 1},
+  {cityName: 'Brussels', cityId: 2},
+  {cityName: 'Amsterdam', cityId: 3},
+  {cityName: 'Hamburg', cityId: 4},
+  {cityName: 'Dusseldord', cityId: 5},
+];
+
 export const offers: offerType[] = [
   {
     id: generateId(),
@@ -51,7 +60,7 @@ export const offers: offerType[] = [
     type: 'apartment',
     isPremium: true,
     stars: 3,
-    city: 'Amsterdam',
+    city: cities[1],
     bedrooms: 2,
     guestsMax: 7,
     price: 4534,
@@ -72,7 +81,7 @@ export const offers: offerType[] = [
     type: 'flat',
     isPremium: false,
     stars: 5,
-    city: 'Cologne',
+    city: cities[1],
     bedrooms: 1,
     guestsMax: 4,
     price: 3576,
@@ -93,7 +102,7 @@ export const offers: offerType[] = [
     type: 'villa',
     isPremium: true,
     stars: 4,
-    city: 'Cologne',
+    city: cities[2],
     bedrooms: 5,
     guestsMax: 14,
     price: 15757,
@@ -114,7 +123,7 @@ export const offers: offerType[] = [
     type: 'atelier',
     isPremium: false,
     stars: 5,
-    city: 'Paris',
+    city: cities[3],
     bedrooms: 1,
     guestsMax: 2,
     price: 3435,
@@ -128,3 +137,38 @@ export const offers: offerType[] = [
     reviews: reviews[3],
   },
 ];
+
+export const POINTS: Points = [
+  {
+    title: 'Саундвью',
+    lat: 40.816881,
+    lng: -73.872768
+  },
+  {
+    title: 'Ферри Поинт',
+    lat: 40.814909,
+    lng: -73.830682
+  },
+  {
+    title: 'Бронкс',
+    lat: 40.862413,
+    lng: -73.879357
+  },
+  {
+    title: 'Инвуд-Хилл',
+    lat: 40.870817,
+    lng: -73.927112
+  },
+  {
+    title: 'Пелхэм-Бей-Парк',
+    lat: 40.877312,
+    lng: -73.807182
+  }
+];
+
+export const mainCity:City = {
+  title: 'Нью-Йорк',
+  lat: 40.835292,
+  lng: -73.916236,
+  zoom: 10
+};

@@ -1,4 +1,4 @@
-import {offerType} from '../../types/types';
+import {cityType, offerType} from '../../types/types';
 import CityCard from '../../components/city-card/city-card';
 
 type FavoritesType = {
@@ -6,12 +6,9 @@ type FavoritesType = {
 }
 
 function Favorites({offers}: FavoritesType): JSX.Element {
-  let cities:string[] = [];
+  let cities:cityType[] = [];
   offers.forEach((offer) => cities.push(offer.city));
   cities = [...new Set(cities)];
-
-  // eslint-disable-next-line no-console
-  console.log(cities);
 
   return (
     <>
@@ -81,36 +78,33 @@ function Favorites({offers}: FavoritesType): JSX.Element {
               <h1 className='favorites__title'>Saved listing</h1>
               <ul className='favorites__list'>
                 {
-                  cities.map((city) => {
-                    const keyValue = cities.indexOf(city);
-                    return (
-                      <li key={keyValue} className='favorites__locations-items'>
-                        <div className='favorites__locations locations locations--current'>
-                          <div className='locations__item'>
-                            <a className='locations__item-link' href='#xxx'>
-                              <span>{city}</span>
-                            </a>
-                          </div>
+                  cities.map((city) => (
+                    <li key={city.cityId} className='favorites__locations-items'>
+                      <div className='favorites__locations locations locations--current'>
+                        <div className='locations__item'>
+                          <a className='locations__item-link' href='#xxx'>
+                            <span>{city.cityName}</span>
+                          </a>
                         </div>
-                        <div className='favorites__places'>
-                          {
-                            offers.map((offer) => {
-                              if (offer.city === city) {
-                                return (
-                                  <CityCard
-                                    onHovered={() => undefined}
-                                    onDeactivated={() => undefined}
-                                    key={offer.id}
-                                    offer={offer}
-                                    isActive={false}
-                                  />);
-                              }
-                            })
-                          }
-                        </div>
-                      </li>
-                    );
-                  })
+                      </div>
+                      <div className='favorites__places'>
+                        {
+                          offers.map((offer) => {
+                            if (offer.city === city) {
+                              return (
+                                <CityCard
+                                  onHovered={() => undefined}
+                                  onDeactivated={() => undefined}
+                                  key={offer.id}
+                                  offer={offer}
+                                  isActive={false}
+                                />);
+                            }
+                          })
+                        }
+                      </div>
+                    </li>
+                  ))
                 }
               </ul>
             </section>
